@@ -58,7 +58,7 @@
                 
                 if(changed==true){
                 //System.out.println(i + "-" + monthstr);
-                System.out.println(i + "--" + monthstr+"--"+daystr);}
+                System.out.println(i + "-" + monthstr+"-"+daystr);}
             }
         }
     }
