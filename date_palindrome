@@ -1,0 +1,65 @@
+
+    
+    public static void printBonusDatesBetween(int fromYear, int toYear){
+        int month, day;
+        String monthstr ="", daystr ="";
+        boolean changed = false;
+        int a,b,c,d;
+        
+        for(int i = fromYear; i<= toYear; i++){
+            
+            
+            changed = false;
+            
+            a=i/1000%10;
+            b=i/100%10;
+            c=i/10%10;
+            d=i%10;
+            
+            if(d==0 && c!=0){
+                //System.out.println(i + "-" + i%10 + i/10%10);
+            month = c;
+            monthstr = "0"+month;
+                //System.out.println(i + "--" + monthstr);
+                changed = true;
+            
+            }
+            else if(d==1 && c<=2){
+                month = d*10+c;
+                monthstr = Integer.toString(month);
+                //if(i%100){
+                changed = true;
+                //System.out.println(i+"--"+monthstr);
+            }
+            if(changed==true){
+                changed = false;
+                //checking for short months
+                if(a==1 && b==3 && (monthstr.equals("04")||monthstr.equals("06")||monthstr.equals("09")||monthstr.equals("11"))){
+                    //System.out.println("works");
+                    continue;
+                }
+                //checking for February
+                if(monthstr.equals("02")){
+                    if(b==3 || (i%4!=0 && a==9)){
+                        continue;
+                }}
+                if(b==0){
+                    day = a;
+                    daystr= "0"+day;
+                    //System.out.println(i + "--" + monthstr+"--"+daystr);
+                    changed = true;
+                }
+                else if(b<=2 ||(b==3 && a<=1)){
+                    day = b+a;
+                    daystr = Integer.toString(b)+Integer.toString(a);
+                    changed = true;
+                    //System.out.println(i + "--" + monthstr+"--"+daystr);
+                }
+                
+                if(changed==true){
+                //System.out.println(i + "-" + monthstr);
+                System.out.println(i + "--" + monthstr+"--"+daystr);}
+            }
+        }
+    }
+
